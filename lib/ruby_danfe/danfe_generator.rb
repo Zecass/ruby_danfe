@@ -275,6 +275,10 @@ module RubyDanfe
         info_adicional += "\n#{@xml['infAdic/infAdFisco']}"
       end
 
+      if @xml['compra/xPed'] != ""
+        info_adicional += " PEDIDO: " + @xml['compra/xPed']
+      end
+
       @pdf.bounding_box [(0.33).cm, Helper.invert(26.78.cm)], height: 2.7.cm, width: 12.7.cm do
         @pdf.font_size 6
         @pdf.text info_adicional, align: :justify
