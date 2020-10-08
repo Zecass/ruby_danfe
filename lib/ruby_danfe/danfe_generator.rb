@@ -275,8 +275,8 @@ module RubyDanfe
         info_adicional += "\n#{@xml['infAdic/infAdFisco']}"
       end
 
-      if @xml['compra/xPed'] != ""
-        info_adicional += " PEDIDO: " + @xml['compra/xPed']
+      if numero_do_pedido != ""
+        info_adicional += " PEDIDO: " + numero_do_pedido
       end
 
       @pdf.bounding_box [(0.33).cm, Helper.invert(26.78.cm)], height: 2.7.cm, width: 12.7.cm do
@@ -353,6 +353,18 @@ module RubyDanfe
         "9 - Sem frete"
       else
         "0 - Remetente (CIF)"
+      end
+    end
+
+    def numero_do_pedido
+      @xml.collect('xmlns', 'det')  { |det|
+        @xPed = det.css('prod/xPed').text
+      }
+
+      if @xPed != ""
+        @xPed
+      else
+        @xml['compra/xPed']
       end
     end
   end
