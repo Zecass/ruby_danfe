@@ -11,8 +11,16 @@ module RubyDanfe
       }
 
       @document = Prawn::Document.new(default_opts.merge(opts))
+      @document.font_families.update(
+        "OpenSans" => {
+          normal: { file: "#{Dir.pwd}/assets/OpenSans-Regular.ttf" },
+          italic: { file: "#{Dir.pwd}/assets/OpenSans-Italic.ttf" },
+          bold: { file: "#{Dir.pwd}/assets/OpenSans-Bold.ttf" },
+          bold_italic: { file: "#{Dir.pwd}/assets/OpenSans-Bolditalic.ttf" }
+        }
+      )
 
-      @document.font "Times-Roman"
+      @document.font "OpenSans"
     end
 
     def method_missing(method_name, *args, &block)
