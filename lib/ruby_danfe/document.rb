@@ -13,10 +13,10 @@ module RubyDanfe
       @document = Prawn::Document.new(default_opts.merge(opts))
       @document.font_families.update(
         "OpenSans" => {
-          normal: { file: "#{Dir.pwd}/assets/OpenSans-Regular.ttf" },
-          italic: { file: "#{Dir.pwd}/assets/OpenSans-Italic.ttf" },
-          bold: { file: "#{Dir.pwd}/assets/OpenSans-Bold.ttf" },
-          bold_italic: { file: "#{Dir.pwd}/assets/OpenSans-Bolditalic.ttf" }
+          normal: { file: "assets/OpenSans-Regular.ttf" },
+          italic: { file: "assets/OpenSans-Italic.ttf" },
+          bold: { file: "assets/OpenSans-Bold.ttf" },
+          bold_italic: { file: "assets/OpenSans-Bolditalic.ttf" }
         }
       )
 
