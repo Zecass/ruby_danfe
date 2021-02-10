@@ -1,4 +1,11 @@
 module RubyDanfe
+  file = __FILE__
+  file = File.readlink(file) if File.symlink?(file)
+  dir = File.dirname(file)
+
+  BASEDIR = File.expand_path(File.join(dir, '..'))
+  ASSETSDIR = File.expand_path(File.join(dir, '..', 'assets'))
+
   class Document
     def initialize(opts = {})
       default_opts = {
@@ -10,19 +17,13 @@ module RubyDanfe
         :botton_margin => 0
       }
 
-      File.new("assets/OpenSans-Regular.ttf")
-      normal = File.new("assets/OpenSans-Regular.ttf")
-      italic = File.new("assets/OpenSans-Italic.ttf")
-      bold = File.new("assets/OpenSans-Bold.ttf")
-      bold_italic = File.new("assets/OpenSans-BoldItalic.ttf")
-
       @document = Prawn::Document.new(default_opts.merge(opts))
       @document.font_families.update(
         "OpenSans" => {
-          normal: { file: normal.path },
-          italic: { file: italic.path },
-          bold: { file: bold.path },
-          bold_italic: { file: bold_italic.path }
+          normal: { file: "#{RubyDanfe::ASSETSDIR}/OpenSans-Regular.ttf" },
+          italic: { file: "#{RubyDanfe::ASSETSDIR}/OpenSans-Italic.ttf" },
+          bold: { file: "#{RubyDanfe::ASSETSDIR}/OpenSans-Bold.ttf" },
+          bold_italic: { file: "#{RubyDanfe::ASSETSDIR}/OpenSans-Bolditalic.ttf" }
         }
       )
 
