@@ -279,6 +279,10 @@ module RubyDanfe
         info_adicional += " PEDIDO: " + numero_do_pedido
       end
 
+      if nfe_referenciada != ""
+        info_adicional += " NFe referenciada(s): " + nfe_referenciada
+      end
+
       @pdf.bounding_box [(0.33).cm, Helper.invert(26.78.cm)], height: 2.7.cm, width: 12.7.cm do
         @pdf.font_size 6
         @pdf.text info_adicional, align: :justify
@@ -366,6 +370,15 @@ module RubyDanfe
       else
         @xml['compra/xPed']
       end
+    end
+
+    def nfe_referenciada
+      nfe_referenciada = ""
+      @xml.collect('xmlns', 'NFref') { |nfref| 
+        nfe_referenciada += nfref.css('refNFe').text + "; "
+      }
+
+      nfe_referenciada
     end
   end
 end
