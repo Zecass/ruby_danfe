@@ -426,8 +426,8 @@ module RubyDanfe
         end
       }
       @pdf.ibox 0.70, 4.48, 16.26, 16.03
-      @pdf.inumeric 0.70, 4.48, 16.26, 16.03, 'VALOR TOTAL DO SERVIÇO', @xml['vPrest/vTPrest'], { :align => :center, :size => 6, :style => :bold}
-      @pdf.inumeric 0.70, 4.48, 16.26, 16.73, 'VALOR A RECEBER', @xml['vPrest/vRec'],{ :align => :center, :size => 6, :style => :bold }
+      @pdf.inumeric 0.70, 4.48, 16.26, 16.03, 'VALOR TOTAL DO SERVIÇO', @xml['vPrest/vTPrest'], { :align => :center, :size => 5, :style => :bold}
+      @pdf.inumeric 0.70, 4.48, 16.26, 16.73, 'VALOR A RECEBER', @xml['vPrest/vRec'],{ :align => :center, :size => 5, :style => :bold }
     end
 
     def render_impostos

@@ -1,4 +1,5 @@
 require "../lib/ruby_danfe"
+require "byebug"
 
 if ARGV.size == 0
   puts "Usage: generate.rb <filename> <type>"
