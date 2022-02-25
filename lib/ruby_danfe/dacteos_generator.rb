@@ -14,8 +14,7 @@ module RubyDanfe
       @pdf.ibox 0.91, 0.75, 9.90, 1.44, 'SERIE', @xml['ide/serie'], {:size => 8, :align => :center}
       @pdf.ibox 0.91, 2.48, 10.65, 1.44, 'NÚMERO', @xml['ide/nCT'], {:size => 8, :align => :center}
       @pdf.ibox 0.91, 0.97, 13.13, 1.44, 'FL', '1/1', {:size => 8, :align => :center}
-      emiss = @xml['ide/dhEmi'][8, 2] + '/' + @xml['ide/dhEmi'][5, 2] + '/' + @xml['ide/dhEmi'][0, 4] + " " +
-          @xml['ide/dhEmi'][11, 8]
+      emiss = DateTime.parse(@xml['ide/dhEmi']).new_offset('-03:00').strftime('%d/%m/%Y %H:%M:%S')
 
       @pdf.ibox 0.91, 3.21, 14.10, 1.44, 'DATA E HORA DE EMISSÃO', emiss, {:size => 8, :align => :center}
       @pdf.ibox 0.91, 3.43, 17.31, 1.44, 'INSC. SUFRAMA DESTINATÁRIO', @xml['dest/ISUF'], {:size => 8, :align => :center}

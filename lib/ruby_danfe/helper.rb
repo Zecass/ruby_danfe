@@ -46,8 +46,7 @@ module RubyDanfe
       formated_date = ""
 
       if not string.empty?
-        date = Date.strptime(string, "%Y-%m-%d")
-        formated_date = date.strftime("%d/%m/%Y")
+        formated_date = DateTime.parse(string).new_offset('-03:00').strftime('%d/%m/%Y')
       end
 
       formated_date
