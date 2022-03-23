@@ -309,8 +309,8 @@ module RubyDanfe
               Helper.format_quantity(det.css('prod/qCom').text),
               Helper.numerify(det.css('prod/vUnCom').text), #I10a
               Helper.numerify(det.css('prod/vProd').text), #I11
-              Helper.numerify_default_zero(det.css('ICMS/*/vBC').text), #N15
               Helper.numerify_default_zero(det.css('prod/vDesc').text), #I17
+              Helper.numerify_default_zero(det.css('ICMS/*/vBC').text), #N15
               Helper.numerify_default_zero(det.css('ICMS/*/vICMS').text), #N17
               Helper.numerify_default_zero(det.css('IPI/*/vIPI').text), #O14
               Helper.numerify_default_zero(det.css('ICMS/*/pICMS').text), #N16
