@@ -150,7 +150,7 @@ module RubyDanfe
       @pdf.inumeric 0.85, 2.57, 7.96, 13.63, "OUTRAS DESPESAS ACESSORIAS", @xml['ICMSTot/vOutro']
       @pdf.inumeric 0.85, 2.57, 10.53, 13.63, "V. FCP UF DESTINATARIO", @xml['ICMSTot/vFCPUFDest'].empty? ? "0" : @xml['ICMSTot/vFCPUFDest']
       @pdf.inumeric 0.85, 2.57, 13.1, 13.63, "V. ICMS UF DESTINATARIO", @xml['ICMSTot/vICMSUFDest'].empty? ? "0" : @xml['ICMSTot/vICMSUFDest']
-      @pdf.inumeric 0.85, 2.57, 15.67, 13.63, "VALOR DO IPI", @xml['ICMSTot/vIPI']
+      @pdf.inumeric 0.85, 2.57, 15.67, 13.63, "VALOR DO IPI", (@xml['ICMSTot/vIPI'].to_f + @xml['ICMSTot/vIPIDevol'].to_f).to_s
       @pdf.inumeric 0.85, 2.57, 18.24, 13.63, "VALOR TOTAL DA NOTA", @xml['ICMSTot/vNF'], :style => :bold
     end
 
