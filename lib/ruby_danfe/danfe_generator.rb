@@ -113,7 +113,7 @@ module RubyDanfe
         dtduplicata = dtduplicata[8,2] + '/' + dtduplicata[5, 2] + '/' + dtduplicata[0, 4]
         @pdf.ibox 0.85, 2.12, x + 0.70, y + 0.20, '', dtduplicata, { :size => 6, :border => 0 }
         @pdf.ibox 0.85, 2.12, x, y + 0.40, '', 'Valor: R$', { :size => 6, :border => 0, :style => :italic }
-        @pdf.inumeric 0.85, 1.25, x + 0.70, y + 0.40, '', det.css('vDup').text, { :size => 6, :border => 0 }
+        @pdf.inumeric 0.85, 1.25, x + (det.css('vDup').text.length - 1) * 0.1, y + 0.40, '', det.css('vDup').text, { :size => 6, :border => 0 }
         x = x + 2.30
       end
 
