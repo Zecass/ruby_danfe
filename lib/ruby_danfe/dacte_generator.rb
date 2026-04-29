@@ -455,6 +455,7 @@ module RubyDanfe
       else
         cst = '90 - ICMS outros'
         tipoIcms = 'ICMSOutraUF'
+        complemento = 'OutraUF'
       end
       @pdf.ibox 0.90, 10.00, 0.25, 17.83, 'SITUAÇÃO TRIBUTÁRIA', cst, { :size => 7, :style => :bold }
       @pdf.inumeric 0.90, 3.00, 10.25, 17.83, 'BASE DE CÁLCULO', @xml['imp/ICMS/'+ tipoIcms + '/vBC'+ complemento], { :size => 7, :style => :bold }
